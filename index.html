@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Poker Club">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0f5132">
+    <title>Poker Club</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🃏 Poker Club</h1>
+        </header>
+
+        <main>
+            <!-- Player Management Section -->
+            <section class="player-section">
+                <h2>Players</h2>
+                <div class="players-table-container" id="playersTableContainer">
+                    <table class="players-table" id="playersTable">
+                        <tbody id="playersTableBody">
+                        </tbody>
+                    </table>
+                    <div class="empty-state" id="playersEmptyState">
+                        <p>No players added yet. Add players to start tracking!</p>
+                    </div>
+                </div>
+                <div class="add-player-section">
+                    <div class="input-group">
+                        <input type="text" id="playerNameInput" placeholder="Enter player name..." maxlength="20">
+                        <button id="addPlayerBtn" class="btn btn-primary">Add Player</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Borrowing Section -->
+            <section class="borrowing-section">
+                <h2>Borrow Money</h2>
+                <div class="borrow-controls">
+                    <div class="input-group">
+                        <select id="borrowPlayerSelect" class="player-select">
+                            <option value="">Select player...</option>
+                        </select>
+                        <input type="number" id="customAmountInput" placeholder="Amount" min="1" step="1" inputmode="numeric" pattern="[0-9]*">
+                        <button id="borrowBtn" class="btn btn-success">Borrow</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settlement Section -->
+            <section class="settlement-section">
+                <h2>Settlement</h2>
+                <div class="settle-controls">
+                    <div class="input-group">
+                        <select id="settlePlayerSelect" class="player-select">
+                            <option value="">Select player...</option>
+                        </select>
+                        <input type="number" id="settlementAmount" placeholder="Amount to settle" step="1" inputmode="numeric" pattern="[0-9]*">
+                        <button id="settleBtn" class="btn btn-warning">Settle</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transaction History -->
+            <section class="history-section">
+                <h2>Transaction History</h2>
+                <div class="transaction-list" id="transactionList">
+                    <div class="empty-state" id="historyEmptyState">
+                        <p>No transactions yet.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Data is stored in your browser's local storage, share to whatsapp to take copy</p>
+            <div class="footer-buttons">
+                <button id="whatsappBtn" class="btn btn-success btn-small whatsapp-btn">
+                    <img src="Digital_Glyph_Green.svg" alt="WhatsApp" class="whatsapp-icon">
+                </button>
+                <button id="resetBtn" class="btn btn-danger btn-small">Reset Game</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        // Service worker registered successfully
+                    })
+                    .catch(registrationError => {
+                        // Service worker registration failed
+                    });
+            });
+        }
+    </script>
+</body>
+</html> 

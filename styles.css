@@ -1,0 +1,765 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Mobile-first: prevent zoom on input focus */
+input[type="text"], input[type="number"], select {
+    font-size: 16px !important;
+}
+
+/* Better touch targets for mobile */
+button, .btn {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Smooth scrolling for mobile and prevent zoom issues */
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #0f5132 0%, #1e3a8a 100%);
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header {
+    background: linear-gradient(135deg, #0f5132 0%, #1e3a8a 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+/* Section styling */
+section {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 2px solid #e9ecef;
+}
+
+section h2 {
+    color: #0f5132;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #0f5132;
+    padding-bottom: 0.5rem;
+}
+
+/* Input groups */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+input[type="text"], input[type="number"], select {
+    flex: 1;
+    min-width: 150px;
+    padding: 1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: #0f5132;
+}
+
+/* Button styles */
+.btn {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0f5132 0%, #1e3a8a 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(15, 81, 50, 0.3);
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(108, 117, 125, 0.3);
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+
+
+/* Players Table */
+.players-table-container {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.add-player-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.players-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.players-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* First column (#) - fixed narrow width */
+.players-table td:nth-child(1) {
+    width: 60px;
+    text-align: center;
+}
+
+/* Second column (Player) - flexible width */
+.players-table td:nth-child(2) {
+    width: auto;
+}
+
+/* Third column (Net Balance) - flexible width */
+.players-table td:nth-child(3) {
+    width: auto;
+}
+
+/* Fourth column (Borrow button) - fixed width, right-aligned */
+.players-table td:nth-child(4) {
+    width: 150px;
+    text-align: right;
+}
+
+/* Fifth column (Actions) - fixed width, right-aligned */
+.players-table td:nth-child(5) {
+    width: 80px;
+    text-align: right;
+}
+
+.players-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.players-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.players-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.total-row {
+    background: #f8f9fa !important;
+    border-top: 2px solid #0f5132 !important;
+}
+
+.total-row td {
+    padding: 1rem !important;
+    border-top: 2px solid #0f5132 !important;
+}
+
+.player-name {
+    font-weight: 600;
+    color: #0f5132;
+    font-size: 1.1rem;
+}
+
+.player-balance {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.player-balance.positive {
+    color: #28a745;
+}
+
+.player-balance.negative {
+    color: #dc3545;
+}
+
+.player-balance.zero {
+    color: #6c757d;
+}
+
+.player-borrow-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.player-borrow-btn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.player-remove-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-remove-btn:hover {
+    background: #c82333;
+    transform: scale(1.1);
+}
+
+/* Disabled button styles */
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn:disabled:hover {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+
+
+#customAmountInput {
+    max-width: 150px;
+}
+
+/* Transaction History */
+
+.transaction-list {
+    max-height: 300px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.transaction-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-item:hover {
+    background: #f8f9fa;
+}
+
+.transaction-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.transaction-player {
+    font-weight: 600;
+    flex: 1;
+}
+
+.transaction-player.borrow {
+    color: #dc3545;
+}
+
+.transaction-player.settle {
+    color: #28a745;
+}
+
+.transaction-amount {
+    font-weight: bold;
+    font-size: 1rem;
+    min-width: 60px;
+    text-align: right;
+}
+
+.transaction-amount.positive {
+    color: #28a745;
+}
+
+.transaction-amount.negative {
+    color: #dc3545;
+}
+
+.transaction-time {
+    font-size: 0.85rem;
+    color: #6c757d;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Empty states */
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+    background: white;
+    border-radius: 8px;
+    border: 2px dashed #e9ecef;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-top: 2px solid #e9ecef;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.whatsapp-btn {
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    html, body {
+        padding: 0;
+        margin: 0;
+        background: white;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    body {
+        position: relative;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        min-height: 100vh;
+    }
+    
+    .container {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    section {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+    }
+    
+    header {
+        padding: 1.5rem;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+    
+
+    
+    .players-table td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.9rem;
+    }
+    
+
+    
+
+    
+    .transaction-content {
+        gap: 0.5rem;
+    }
+    
+    .transaction-player {
+        font-size: 0.9rem;
+    }
+    
+    .transaction-amount {
+        font-size: 0.9rem;
+        min-width: 50px;
+    }
+    
+    .transaction-time {
+        font-size: 0.8rem;
+        min-width: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 0.5rem;
+    }
+    
+    header {
+        padding: 1rem 0.5rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    section {
+        margin-bottom: 1rem;
+        padding: 0.75rem 0.5rem;
+    }
+    
+    section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .players-table td {
+        padding: 0.4rem 0.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .player-balance {
+        font-size: 0.95rem;
+    }
+    
+    .player-name {
+        font-size: 0.95rem;
+    }
+
+    .footer-buttons {
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    footer {
+        padding: 1rem 0.5rem;
+    }
+
+    footer .btn {
+        flex: 1;
+        max-width: 180px;
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+        min-width: 120px;
+    }
+    
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    input[type="text"], input[type="number"], select {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .add-player-section {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+    }
+}
+
+/* Mobile landscape optimizations */
+@media (max-width: 896px) and (orientation: landscape) {
+    header {
+        padding: 0.8rem;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+    
+    main {
+        padding: 0.5rem;
+    }
+    
+    section {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    section h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* iOS Safe Area Support */
+@supports(padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    header {
+        padding-top: max(1rem, env(safe-area-inset-top));
+    }
+    
+    footer {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* Better mobile table scrolling */
+.players-table-container {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+}
+
+/* Mobile-first active states */
+.btn:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
+/* Prevent zoom and viewport issues */
+* {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input, textarea, select {
+    -webkit-user-select: auto;
+}
+
+/* Lock viewport on mobile */
+@media (max-width: 768px) {
+    * {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    /* Prevent horizontal scrolling only */
+    html, body, .container {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Ensure vertical scrolling works */
+    body {
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+}
+
+/* Improve mobile select styling */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 0.65rem auto;
+    padding-right: 2.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.players-table tbody tr, .transaction-item {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Scrollbar styling */
+.transaction-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.transaction-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.transaction-list::-webkit-scrollbar-thumb {
+    background: #0f5132;
+    border-radius: 4px;
+}
+
+.transaction-list::-webkit-scrollbar-thumb:hover {
+    background: #0a3d26;
+} 

@@ -1,0 +1,20 @@
+{
+  "name": "Poker Club Money Tracker",
+  "short_name": "Poker Club",
+  "description": "Track money borrowed and settled in poker games",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f5132",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "Digital_Glyph_Green.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "utilities"],
+  "lang": "en"
+} 
